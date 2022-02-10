@@ -2,7 +2,7 @@
 
 // function that randomly returns true or false
 function randomBoolean () {
-    const rando = random(1)
+    const rando = random(fxrand())
     return rando > .5 ? true : false
 }
 
@@ -26,6 +26,6 @@ function hexagon (posX, posY, radius) {
 
   //gets a random color from palette array
   function getRandomFromPalette () {
-    const rando = floor(random(0, PALLETTE.length))
-    return PALLETTE[rando]
+    const rando = floor(random(0, PALETTE.length))
+    return PALETTE[rando]
   }
