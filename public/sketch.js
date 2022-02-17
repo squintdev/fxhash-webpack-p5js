@@ -5,7 +5,12 @@ let PALETTE = []
 let shape;
 
 function setup() {
-    createCanvas(500, 500)
+    let cnv = createCanvas(windowWidth, windowHeight)
+    cnv.id('p5canvas')
+
+    //set angleMode and rectMode here
+    angleMode(DEGREES)
+    rectMode(CENTER)
     
     //customize colors in this palette array...can be any number of colors
     PALETTE = [
@@ -15,10 +20,22 @@ function setup() {
 
     noLoop()
 
+    /**
+     * MAKE SURE TO PUT ANY CALLS TO RANDOM() OR NOISE() AFTER randomSeed(seed)
+     */
     seed=int(fxrand() * 100000000) // FXHASH seed rand
     randomSeed(seed)
 
-    shape = randomBoolean() ? 'rectangle' : 'circle'
+    shapePicker = random(1)
+
+    if (shapePicker < 0.1) {
+      shape = 'hexagon';
+    } else if (shapePicker >= 0.1 && shapePicker < 0.5) {
+      shape = 'rectangle';
+    } else {
+      shape = 'circle';
+    }
+
     backgroundColor = getRandomFromPalette()
     shapeColor = getRandomFromPalette()
 
@@ -36,10 +53,12 @@ function draw() {
   background(backgroundColor)
   fill(shapeColor)
    
-  if(shape === 'rectangle') {
+  if (shape === 'rectangle') {
     rect(width/2,height/2,100,100)
-  } else {
+  } else if (shape === 'circle') {
     ellipse(width/2,height/2,100,100)
+  } else {
+    hexagon(width / 2, height / 2, 100,100)
   }
 }
 

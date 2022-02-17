@@ -16,13 +16,6 @@ function hexagon (posX, posY, radius) {
     }
     endShape(CLOSE)
   }
-  
-  //finds a point on a circle
-  function pointOnCircle (posX, posY, radius, angle) {         
-    const x = posX + radius * cos(angle)
-    const y = posY + radius * sin(angle)
-    return createVector(x, y)
-  }
 
   //gets a random color from palette array
   function getRandomFromPalette () {

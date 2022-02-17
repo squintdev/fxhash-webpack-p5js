@@ -2,5 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
   color: black;
+}
+
+#p5canvas {
+  width: 100%;
+  height: auto;
 }
