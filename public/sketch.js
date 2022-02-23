@@ -29,7 +29,7 @@ function setup() {
     shapePicker = random(1)
 
     if (shapePicker < 0.1) {
-      shape = 'hexagon';
+      shape = 'ngon';
     } else if (shapePicker >= 0.1 && shapePicker < 0.5) {
       shape = 'rectangle';
     } else {
@@ -58,7 +58,9 @@ function draw() {
   } else if (shape === 'circle') {
     ellipse(width/2,height/2,100,100)
   } else {
-    hexagon(width / 2, height / 2, 100,100)
+    //number of sides for ngon
+    sides = floor(random(3,10))
+    ngon(width / 2, height / 2, 100, sides)
   }
 }
 
