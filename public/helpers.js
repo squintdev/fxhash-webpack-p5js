@@ -1,18 +1,25 @@
 //place any helper functions in this file to keep sketch code clean and manageable
 
+
 // function that randomly returns true or false
 const randomBoolean = () => {
   const rando = random(fxrand())
   return rando > .5 ? true : false
 }
 
-//gets a random color from palette array
-const getRandomFromPalette = () => {
-  const rando = floor(random(0, PALETTE.length))
-  return PALETTE[rando]
+// function that procedurally generates an HSL color Palette
+const createPalette = (colorCount) => {
+  var PALETTE = [];
+  for (i = 0; i < colorCount; i++) {
+    newColor = color(random(360), random(100), random(100));
+    PALETTE.push(newColor);
+  }
+
+  return PALETTE;
 }
 
-//creates an ngon
+
+// function that creates an ngon
 const ngon = (posX, posY, radius, sides) => {                     
   const rotAngle = 360 / sides
   beginShape()
@@ -23,6 +30,7 @@ const ngon = (posX, posY, radius, sides) => {
   endShape(CLOSE)
 }
 
+// function that locates points on a circle
 const pointOnCircle = (posX, posY, radius, angle) => {         
   const x = posX + radius * cos(angle)
   const y = posY + radius * sin(angle)

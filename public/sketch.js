@@ -1,22 +1,19 @@
-// FH_HASH p5 template | @squintdev
-
+// FH_HASH p5 template | by @squintdev
+const colorCount = 3; //number of colors in palette
 let seed = 0; //seed Hash
-let PALETTE = []
 let shape;
+let PALETTE;
 
 function setup() {
-    let cnv = createCanvas(windowWidth, windowHeight)
-    cnv.id('p5canvas')
+    let size = min(windowWidth, windowHeight);
+    let cnv = createCanvas(size, size);
+    cnv.id('p5canvas');
 
     //set angleMode and rectMode here
     angleMode(DEGREES)
     rectMode(CENTER)
-    
-    //customize colors in this palette array...can be any number of colors
-    PALETTE = [
-      color(16,215,222),
-      color(52,62,61)
-    ]
+
+    colorMode(HSL);
 
     noLoop()
 
@@ -25,6 +22,8 @@ function setup() {
      */
     seed=int(fxrand() * 100000000) // FXHASH seed rand
     randomSeed(seed)
+
+    PALETTE = createPalette(colorCount);
 
     shapePicker = random(1)
 
@@ -36,8 +35,8 @@ function setup() {
       shape = 'circle';
     }
 
-    backgroundColor = getRandomFromPalette()
-    shapeColor = getRandomFromPalette()
+    backgroundColor = random(PALETTE);
+    shapeColor = random(PALETTE);
 
     // fxHash Features
     window.$fxhashFeatures = {
@@ -65,5 +64,6 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  let newSize = min(windowWidth, windowHeight);
+  resizeCanvas(newSize, newSize);
 }

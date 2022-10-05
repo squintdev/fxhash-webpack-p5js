@@ -1,7 +1,7 @@
 FXHASH P5js Generative Token webpack boilerplate
 ================
 
-This template is based on the fxHash webpack boilerplate, but has p5js implemented. Use sketch.js to create your art.
+This template is based on the fxHash webpack boilerplate, but has p5js implemented. Use sketch.js to create your art. I also added a helpers.js file for some functions I use frequently. Feel free to add your own.
 
 ### Installation
 
